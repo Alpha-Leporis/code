@@ -1,0 +1,29 @@
+# https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe
+
+Logistic Regression:
+Logistic regression is similar to linear regression, except
+Logistic regression predicts whether something is True or False, instead of predicting something continuous like size.
+also, instead of fitting a line to the data, logistic regression fits an "S" shaped "logistic function".
+The curve goes from 0 to 1, that means that the
+curve tells us the probability that a mouse is obese based on its weight.
+
+Although logistic regression tells the probability that a mouse is obese or not, it's usually used for classification.
+For example, if the probability a mouse is obese is > 50%,
+then we'll classify it as obese, otherwise we'll classify it as
+"not obese".
+
+In other words, just like linear regression, logistic regression can work with continuous data (like weight and age) and discrete data (like genotype and astrological sign).
+
+Instead, we just test to see if a variable's effect on the prediction is significantly different from 0.
+If not, it means the variable is not helping the prediction.
+
+logistic regression uses something called "maximum likelihood".
+1. You pick a probability, scaled by weight, of observing an obese
+mouse - just like the curve...
+2. and we use that to calculate the likelihood of observing a non-
+obese mouse that weighs this much.
+3. and then you calculate the likelihood of observing different mouse (step 2)
+4. and lastly you multiply all of those likelihoods together. That's the likelihood of the data given this line.
+5. Then you shift the line and calculate a new likelihood of the data.
+...then shift the line and calculate the likelihood again... and again..
+6. Finally, the curve with the maximum likelihood is selected.

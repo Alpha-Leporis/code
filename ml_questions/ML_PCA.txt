@@ -1,0 +1,43 @@
+# https://www.youtube.com/watch?v=FgakZw6K1QQ
+
+# Principal Component Analysis (PCA):
+we're going to go through Principal Component Analysis
+(PCA) one step at a time using Singular Value Decomposition (SVD).
+we'll learn what PCA does, how it does it, and how to use it to get deeper insight into your data.
+
+To understand what PCA does and how it works, let's go back to the
+dataset that only had 2 genes.
+
+We'll start by plotting the data...
+Then we'll calculate the average measurement for Gene 1 and the average
+measurement for Gene 2.With the average values, we can calculate the center of the data.
+
+From this point on, we'll focus on what happens in the graph; we no
+longer need the original data.
+
+Now we'll shift the data so that the center is on top of the origin (0,0) in the graph.
+NOTE: Shifting the data did not change how the data points are
+positioned relative to each other.
+
+Now that the data are centered on the origin, we can try to fit a line to it.
+To do this, we start by drawing a random line that goes through the origin.
+then we rotate the line until it fits the data as well is it can, given that it has to go through the origin.
+First, we need to talk about how PCA decides if a fit is good or not.
+So let's go back to the original "random line that goes through the origin".
+To quantify how good this line fits the data, PCA projects the data onto it.
+and then it can either measure the distances from the data to the line and try to find the line that minimizes those distances. or it can try to find the line that maximizes the distances from the projected points to the origin.
+
+d1^2 + d2^2 + d3^2 + d4^2 + d5^2 + d6^2 = sum of squared distance
+= SS(distances)
+
+Rotate the line project the data onto the line and then sum up the
+squared distances from the projected points to the origin.
+and we repeat until we end up with the line with the largest sum of squared distances between the projected points and the origin.
+Ultimately, we end up with this line. It has the largest SS(distances).
+This line is called Principal Component 1 (PC1 for short).
+
+One way to think about PC1 is in terms of a cocktail recipe.
+To make PCl
+Mix 4 parts Gene 1
+with 1 part Gene 2
+The ratio of Gene 1 to Gene2 tells you that Gene 1 is more important when it comes to describing how the data are spread out. Mathematicians call this cocktail recipe a "linear combination" of Genes 1 and 2.

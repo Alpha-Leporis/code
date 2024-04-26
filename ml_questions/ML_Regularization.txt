@@ -1,0 +1,61 @@
+Regularization: it is just another way to say "desensitization"
+
+# model fit the Testing Data very well at all, that is to say, it had high Variance.
+
+# Ridge Regression: The main idea behind Ridge Regression
+is to find a New Line that doesn't fit the Training Data as well.
+In other words, we introduce a small amount of Bias into how the
+New Line is fit to the data.
+but in return for that small amount of Bias, we get a significant drop in Variance.
+
+In other words, by starting with a slightly worse fit,
+Ridge Regression can provide better long term
+predictions.
+
+In contrast, when Ridge Regression determines values for the parameters
+in this equation.
+Size = y-axis intercept + slope x Weight
+...it minimizes...
+the sum of the squared residuals + lamdda x the slope^2
+
+# the slope^2 adds a penalty to the traditional Least Squares method. and lambda determines how severe that penalty is. (let lamda = 1)
+
+For the Least Squares Line, the sum of squared residuals plus the Ridge Regression Penalty is 1.69.
+For the Ridge Regression Line, the sum of squared residuals plus the Ridge Regression Penalty is 0.74.
+
+Thus, if we wanted to minimize the sum of the squared residuals plus the Ridge Regression Penalty, we would choose the Ridge Regression Line over the Least Squares Line.
+
+Without the small amount of Bias that the penalty creates, the Least Squares Fit has a large amount of Variance. In contrast, the Ridge
+Regression Line, which has the small amount of Bias due to the penalty, has less Variance.
+
+# The Ridge Regression Penalty resulted in a line that has a smaller slope. which means that predictions made with the Ridge are less Regression Line sensitive to Weight than the Least Squares Line.
+
+# lamda can be any value from O to positive infinity.
+When lamda = 0, then the Ridge Regression Penalty is also 0.
+and that means that the Ridge Regression Line will only minimize
+the sum of squared residuals.
+when we set lamda = 2, the slope gets smaller, and the larger we make lamda, the slope gets asymptotically close to 0.
+So the larger lamda gets, our predictions for Size become less and less
+sensitive to Weight.
+
+How can we decide value of lamda?
+We just try a bunch of values for lamda and use Cross Validation, typically k-fold Cross Validation, to determine which one results in the lowest Variance.
+
+# Ridge Regression had more Bias than Least Squares. but in return for that small amount of Bias, the Ridge Regression line had a significant
+drop in Variance.
+
+# Lasso Regression: it is very, very similar to Ridge Regression, but it has some very, very important differences.
+
+the sum of the squared residuals + lamdda x |the slope|
+
+In Lasso Regression insted of slope^2 we take absolute value.
+
+Like Ridge Regression, Lasso Regression results in a
+line with a little bit of Bias. but less Variance than Least Squares.
+
+# Difference between Ridge Regression and Lasso Regression
+The big difference between Ridge and Lasso Regression is
+that Ridge Regression can only shrink the slope
+asymptotically close to 0 while Lasso Regression can shrink
+the slope all the way to 0.
+

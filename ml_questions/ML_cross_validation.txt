@@ -1,0 +1,23 @@
+Cross validation allows us to compare different machine learning methods and get a sense of how well they will work in practice.
+
+data is divided into 4 block.
+
+Rather than worry too much about which data block would
+be best for testing, cross validation uses them all, one
+at a time, and summarizes the results at the end.
+
+NOTE: In this example, we divided the data into 4
+blocks. This is called Four-Fold Cross Validation.
+However, the number of blocks is arbitrary.
+
+In an extreme case, we could call each individual
+patient (or sample) a block.
+This is called "Leave One Out Cross Validation"
+Each sample is tested individually.
+
+Say like we wanted to use a method that involved
+a "tuning parameter" - a parameter that isn't
+estimated, but just sort of guessed. (For example,
+Ridge Regression, has a tuning parameter).
+then we could use 10-fold cross validation to
+help find the best value for that tuning parameter.

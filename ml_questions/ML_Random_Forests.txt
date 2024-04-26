@@ -1,0 +1,42 @@
+# https://www.youtube.com/watch?v=J4Wdy0Wc_xQ&list=PLblh5JKOoLUIE96dI3U7oxHaCAbZgfhHk
+
+# Random Forests:
+Random Forests are made out of decision trees.Decision Trees are easy to build, easy to use and easy to interpret.
+Trees have one aspect that prevents them from being the ideal tool for predictive learning, namely inaccuracy.In other words, they work great with the data used to create them, but they are not flexible when it comes to classifying new samples.
+Random Forests combine the simplicity of decision trees with flexibility resulting in a vast improvement in accuracy.
+
+Step 1: Create a "bootstrapped" dataset:
+To create a bootstrapped dataset that is the same size as the original, we just randomly select samples from the original dataset.
+The important detail is that we're allowed to pick the same sample more
+than once.
+
+Step 2: Create a decision tree using the bootstrapped dataset, but
+only use a random subset of variables (or columns) at each step.
+
+Step 3: Now go back to Step 1 and repeat: Make a new bootstrapped dataset and build a tree considering a subset of variables at each step.Ideally, you'd do this 100's of times.
+
+Using a bootstrapped sample and considering only a subset of the
+variables at each step results in a wide variety of trees.The variety is what makes random forests more effective than individual decision trees.
+
+how do we use random forest?
+we take a new data and run it down all the tree. After running the data down all of the trees in the random forest, we see which option
+received more votes.
+In case, "Yes" received the most votes, so we will conclude that this patient has heart disease.
+
+# Bagging: Bootstrapping the data plus using the aggregate to make a decision is called "Bagging".
+
+Typically, about 1/3 of the original data does not end up in the
+bootstrapped dataset.
+The remaining dataset is called the "Out-Of-Bag Dataset"
+
+Ultimately, we can measure how accurate our random forest is by the proportion of Out-Of-Bag samples that were correctly classified by the
+Random Forest.
+
+The proportion of Out-Of-Bag samples that were incorrectly
+classified is the "Out-Of-Bag Error"
+
+2) Estimate the accuracy of a Random Forest:
+3) change the number of variables used per step
+4) Do this for a bunch of times and then choose the one that is most accurate.
+Typically, we start by using the square of the number of variables
+and then try a a few settings above and below that value.

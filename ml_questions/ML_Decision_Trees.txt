@@ -1,0 +1,100 @@
+Decision Tree:
+In general, a Decision Tree makes a statement. and then makes a decision based on whether or not the statement is True or False.
+Types:
+1. When a Decision Tree classifies things into categories, it's called a Classification Tree.
+2. And when a Decision Tree predicts numeric values, it's called a Regression Tree.
+
+The very top of the tree is called the Root Node or just The Root.
+These are called Internal Nodes, or Branches.Branches have
+arrows pointing to them.and they have arrows pointing away from them.
+Last nodes, these are called Leaf Nodes, or just Leaves.Leaves have arrows pointing to them, but there are no arrows pointing away from them.
+
+If Leafs are Impure.
+there are several ways to quantify the Impurity of the leaves.
+One of the most popular methods is called Gini Impurity, but there are also fancy sounding methods like Entropy and Information Gain.
+
+So let's start by calculating the Gini Impurity for Individual leafs.
+# Gini Impurity for a  left Leaf = 1 - (the probability of "Yes")^2 - (the probability of "No")^2
+
+1 - ( 1 / 1+3 )^2 - (3 / 1+3)^2  --> 0.375
+Gini Impurity = 0.375
+
+# Gini Impurity for a  right Leaf = 1 - (the probability of "Yes")^2 - (the probability of "No")^2
+
+1 - ( 2 / 2+1 )^2 - (1 / 2+1)^2  --> 0.444
+Gini Impurity = 0.444
+
+Now, because the Leaf on the left has 4 people in it.
+and the Leaf on the right only has 3 people in it.
+the Leaves do not represent the same number of people.
+
+Total Gini Impurity = weighted average of Gini Impurities for the Leaves
+
+Thus, the total Gini Impurity is the Weighted Average of the Leaf Impurities.
+
+The weight for the left Leaf is the total number of people in the Leaf, 4.   
+ = [4 / (4+3)]*0.375 + [3 / (3+4)]*0.444
+ = 0.405
+
+So the Gini Impurity for Loves Popcorn is 0.405.
+Likewise, the Gini Impurity for Loves Soda is 0.214.
+
+Now we need to calculate the Gini Impurity for Age.
+
+However, because Age contains numeric data, and not just Yes/No values, calculating the Gini Impurity is a little more involved.
+The first thing we do is sort the rows by Age, from lowest value to highest value.
+Then we calculate the average Age for all adjacent people.
+Lastly, we calculate the Gini Impurity values for each average age.
+For example, to calculate the Gini Impurity for the first value...
+	a. we put Age < 9.5 in the Root.
+	b. and because the only person with Age< 9.5 does not Love
+           Cool As Ice, we put a O under Yes and a 1 under No.
+	c. Then, everyone with Age>=9.5 goes to the Leaf on the right.
+	d. Now we calculate the Gini Impurity on the left and right 	   leaf.
+	e. Now we calculate the Weighted Average of the two Impurities 	   to get the total Gini Impurities
+	f. Likewise, we calculate the Gini Impurities for all of the 	   other candidate values.
+These two candidate thresholds, 15 and 44, are tied for the
+lowest Impurity, 0.343
+so we can pick either one. In this case, we'll pick 15.
+
+However, that we are comparing Gini Impurity values for Age, Loves
+Popcorn and Loves Soda.
+to decide which feature should be at the very top of the tree.
+Earlier we calculated the Gini Impurity values for
+Loves Popcorn, Loves Soda and age, and Loves Soda has the lowest Gini Impurity.
+so we put Gini Impurity at the top of the tree
+Now the 4 people that Love Soda go to a Node on the left.
+Now the people that do not Love Soda go to a Node on the right.
+
+All 4 people that Love Soda are in the left Node. 3 of these people
+Love Cool As Ice, and 1 does not.So this Node is Impure.
+
+So let's see if we can reduce the Impurity by splitting the people that Love Soda based on Loves Popcorn or age.
+
+We'll start by asking the 4 people that Love Soda if they also Love
+Popcorn. Because 2 of the 4 people that Love Soda also Love Popcorn, they end up in Leaf on the left.
+The remaining 2 people that Love Soda, but do not Love Popcorn end up
+on the right.And the total Gini Impurity for this split is 0.25.
+
+Now we test different Age thresholds, just like before.
+this time we only consider the Ages of people who Love Soda.
+and Age < 12.5 gives us the lowest Impurity, 0. because both Leaves have no Impurity at all. And the total Gini Impurity for this split is 0.
+
+Now, because O is less than 0.25, we will use Age < 12.5 to split this Node into Leaves.
+
+
+Now there is just one last thing we need to do before we are done building this tree. We need to assign output values for each Leaf.Generally speaking, the output of a Leaf is whatever category
+that has the most votes. 
+
+0K, now that we understand the Main Ideas of how to build and use Classification Trees, let's discuss one technical detail.
+
+Remember, when we built this tree, only one person in the original
+dataset made it to this Leaf.
+Because so few people made it to this Leaf, it's hard to have confidence that it will do a great job making predictions with future-data.And it's possible that we have Overfit the data. Regardless, in practice, there are two main ways to deal with this problem.
+One method is called Pruning.
+Alternatively, we can put limits on how trees grow, for example, by requiring 3 or more people per leaf.
+
+NOTE: Even when a Leaf is Impure we still need an output value to make a classification.
+
+so we test different values with something called Cross Validation
+and pick the one that works best.

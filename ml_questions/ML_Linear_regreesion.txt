@@ -1,0 +1,75 @@
+# https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe
+
+Linear regreesion: 
+Main idea:
+1. least squares to fit a line on data.
+2. Calculate R-squared and determine if weight and size are correlated. Large values imply a large effect.
+3. calculate p-value for R-squared value is statistically significant.
+4. Use the line to predict size given weight.
+
+
+Fitting a line on data:
+1. draw a line on data
+2. measure the distance between from the line to the data,
+   square each distance and then add them up (sum up the squares).
+   note: the distance from line to the data point is called "residual"
+         SSR (sum of suquared residuals)
+3. Rotate a line little bit add them follow step 2 until get we find the rotation that has least sum of squares.
+   this method of fitting a line is called least squred.
+
+Now we have fit a line to the data
+equation of line  y = c + mx 
+least square estimate two parameters,
+c = y-axis intercept
+m = slop
+
+Calculating R-squared is the first step in determining how good that guess will be.
+1. calculating average mouse size ( shifted all data point to y-axis).
+
+2. Just like in least squares, we measure the distance from the mean to the data point and square it, then add those squares together.
+We'll call this SS(mean), for "sum of squares around the mean".
+
+Note: SS(mean) = (data - mean)2  --> here 2 is the square.
+      Variation around the mean = (data - mean)2 / n, where n = sample size. the short hand rotation: Var(mean) = SS(mean) / n
+
+3. We'll call this SS(fit), for the sum of squares around the least-squares fit.  SS(fit) = (data - line)2
+Just like with the mean, the variance around the fit.
+Var(fit) = (data - line)2 / n, 
+the short hand rotation: Var(fit) = SS(fit) / n
+
+Note:
+# SS(mean) or Var(mean) = Measure, square and sum the distance from the data to the mean.
+# SS(fit)or Var(fit) = Measure, square and sum the distance from the data to the complicated equation.
+
+R-squared tells us how much of the variation in mouse size can be explained by taking mouse weight into account.
+R-squared = Var(mean) - Var(fit) / Var(mean)
+or 	    ss(mean) - ss(fit) / ss(mean)
+
+We need a way to determine if the R-squared value is statistically significant.
+We need a p-value.
+       SS(mean) - SS(fit) / (p_fit - p_mean)
+F =    -----------------------------------
+	    SS(fit)   / (n - p_fit)
+Note: (p_fit - p_mean) and (n - p_fit) These numbers over here are the "degrees of freedom". They turn the sums of squares into variances.
+P_fit is the number of parameters in the fit line.
+p_mean is the number of parameters in the mean line.
+
+F = large number / small number --> very large number
+How do we turn this number in to a p-value?
+       SS(mean) — SS(fit) / p_extra
+F =   ---------------------------
+           SS(fit) / (n - P_fit)
+
+One F-distribution to calculae the p value (The degrees of freedom determine the shape)
+(p_fit - p_mean) =  1 ,   (p_fit - p_mean) = 1
+(n - P_fit) =  10    ,      (n - P_fit) = 6
+This means the p-value will be smaller when there are more samples relative to the number of parameters in the fit equation.
+
+
+In Summery:
+1) Quantifies the relationship in the
+data (this is R2).
+	1) This needs to be large.
+2) Determines how reliable that relationship is (this is the p-value
+that we calculate with F).
+	1) This needs to be small.
