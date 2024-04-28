@@ -1,0 +1,36 @@
+1. Embedings 
+2. Attention 
+3. MLPs (multi-layer perceptrons)block
+4. Unembedding
+
+when one of these chatbots generates a given word, here's what's going on under the hood.
+
+First, the input is broken up into a bunch of little pieces.
+These pieces are called tokens, 
+and in the case of text these tend to be words or little pieces of words or other common character combinations.
+If images or sound are involved, then tokens could be little patches of that image or little chunks of that sound.
+
+Each one of these tokens is then associated with a vector, meaning some list of numbers, which is meant to somehow encode the meaning of that piece.
+
+This sequence of vectors then passes through an operation that's
+known as an attention block, and this allows the vectors to talk to each other and pass information back and forth to update their values.
+
+EX: the meaning of the word model in the phrase a machine learning model is different from its meaning in the phrase a fashion model.
+
+The attention block is what's responsible for figuring out which
+words in context are relevant to updating the meanings of which other words,and how exactly those meanings should be updated.
+the word meaning, entirely encoded in the entries of those vectors.
+
+After that, these vectors pass through a different kind of operation, and depending on the source that we're reading this will be referred to as a multi-layer perceptron or maybe a feed-forward layer. And here the vectors dont talk to each other,they all go through the same operation in parallel.
+
+All of the operations in both of these blocks look like a giant pile of matrix multiplications, and our primary job is going to be to understand how to read the underlying matrices.
+
+some normalization steps that happen in between,
+
+After that, the process essentially repeats, you go back and forth between attention blocks and multi-layer perceptron blocks,until at the very end the hope is that all of the essential meaning of the passage has somehow been baked into the very last vector in the sequence.
+We then perform a certain operation on that last vector that produces a probability distribution over all possible tokens, all possible little chunks of text that might come next
+
+once you have a tool that predicts what comes next given a snippet of text, you can feed it a little bit of seed text and have it repeatedly play this game of predicting what comes next,
+sampling from the distribution, appending it, and then repeating over and over.
+
+

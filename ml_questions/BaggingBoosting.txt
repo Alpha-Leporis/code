@@ -1,0 +1,13 @@
+Ensemble learning is a machine learning technique where multiple models are trained to solve the same problem, and their predictions are combined to improve the overall performance. The idea behind ensemble learning is to leverage the diversity of different models to produce more accurate and robust predictions than any individual model could achieve alone.
+
+Common ensemble learning methods include:
+
+1. Bagging (Bootstrap Aggregating): Each model is trained on a random subset of the training data with replacement, and their predictions are averaged or majority-voted.
+
+2. Boosting: Base models are trained sequentially, with each subsequent model focusing on the examples that previous models struggled with.
+
+3. Random Forests: An ensemble of decision trees trained on random subsets of the features and data.
+
+4. Gradient Boosting Machines (GBM): A boosting technique where each new model is trained to correct the errors made by the previous models.
+
+Ensemble learning is widely used in practice across various domains and is known for producing state-of-the-art results in many machine learning tasks.

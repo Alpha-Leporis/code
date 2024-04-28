@@ -594,6 +594,11 @@ Ans. the time complexity of inserting an element into a doubly linked list is O(
 Q.  open-ended machine learning question that provides a dataset and asks to conduct exploratory analysis, 
     generate visualizations, predict a target variable, and visualize feature importance.
 
+
+Tech Questions:
+Q.Swap 2 variables with & without 3rd variable  --> a, b = b, a
+Q. Make all characters of a string upper case --> string.upper()
+
 Q. What is entropy and information gain?
 Q. How does the KNN algorithm work?
 Q. Explain the attention mechanism in depth
@@ -644,6 +649,10 @@ Q. What techniques or method did you use?
 Q. What machine learning algorithms were used in your project?
 Q. How did you choose the parameters?
 Q. How are you a good fit for our company?
+Q. Why IBM?
+Q. What are your strengths and weakness
+Q. If you have offers from IBM,Google and Microsoft with the same CTC, which one will you choose
+Q. What sets you apart from different candidates
 
 Q. Why are you a fit for this role?
 Ans. For various reasons, I am certain that I am a suitable fit for this role, 
@@ -657,3 +666,5 @@ My communication and leadership abilities, in particular, make me a strong conte
 
 # https://www.youtube.com/watch?v=r3ayM0RCeZA
 # 
+
+# https://www.youtube.com/watch?v=2YBftpmjpIg&list=PLOkNZszOa8oOrjJxXSEdcqkJ1bzA5ft2B
