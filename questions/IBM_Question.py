@@ -586,7 +586,7 @@ Ans. The space complexity of a binary search tree is O(n),
      where n is the number of nodes in the tree. This is because 
      a binary search tree must store each node in the tree.
 
-Q. What’s the time complexity of inserting an element into a Doubly linked list?
+Q. What is the time complexity of inserting an element into a Doubly linked list?
 Ans. the time complexity of inserting an element into a doubly linked list is O(1) for 
      insertion at the beginning, O(n) for insertion at the end, and O(n) or O(1) depending on the position 
      of the reference node for insertion at a specific position.

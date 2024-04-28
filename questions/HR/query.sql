@@ -1,4 +1,4 @@
--- 1. Count the Employees
+ -- 1. Count the Employees
 /*
 The data for the number employed at several famous IT companes is maintained in the COMPANY table. 
 Write a query to print the ID's of the companies that have more than 10000 employees. In ascending order of ID.
@@ -326,6 +326,75 @@ select if(grade<8,null,name),grade,mark
 from students join grades
 where marks between min_marks and max_marks
 order by grade desc,name asc,marks asc;
+
+
+
+/*
+Create a query that returns  a list of the three  longest  incoming and outgoing calls 
+Result should have columns type, fullname, phone and duration 
+
+There are two tables contacts and calls table.
+
+Call table has 3 columns id  type  duration.
+
+| id | type     | duration |
+|----|----------|----------|
+| 1  | incoming | 120      |
+| 2  | incoming | 180      |
+| 3  | outgoing | 150      |
+| 4  | outgoing | 200      |
+
+
+
+Contact has 4 columns contact_id,  first_name, last_name and phone.
+
+| contact_id | first_name | last_name | phone        |
+|------------|------------|-----------|--------------|
+| 1          | John       | Doe       | 123-456-7890 |
+| 2          | Jane       | Smith     | 987-654-3210 |
+
+
+Result:
+
+| type     | fullname   | phone        | duration |
+|----------|------------|--------------|----------|
+| Incoming | John Doe   | 123-456-7890 | 180      |
+| Incoming | John Doe   | 123-456-7890 | 120      |
+| Outgoing | Jane Smith | 987-654-3210 | 200      |
+| Outgoing | Jane Smith | 987-654-3210 | 150      |
+
+
+*/
+
+-- QUERY solution
+
+SELECT 
+    'Incoming' AS type,
+    CONCAT(c.first_name, ' ', c.last_name) AS fullname,
+    c.phone,
+    calls.duration
+FROM 
+    calls
+JOIN 
+    contacts c ON calls.type = 'incoming' AND calls.id = c.contact_id
+ORDER BY 
+    calls.duration DESC
+LIMIT 3
+
+UNION
+
+SELECT 
+    'Outgoing' AS type,
+    CONCAT(c.first_name, ' ', c.last_name) AS fullname,
+    c.phone,
+    calls.duration
+FROM 
+    calls
+JOIN 
+    contacts c ON calls.type = 'outgoing' AND calls.id = c.contact_id
+ORDER BY 
+    calls.duration DESC
+LIMIT 3;
 
 
 
