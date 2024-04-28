@@ -1,5 +1,5 @@
 '''
-One of the shops in HackerMalI Offering
+One of the shops in HackerMall Offering
 discount coupons based on a puzzling
 problem. There are n tags where each tag
 has a value denoted by val[i].

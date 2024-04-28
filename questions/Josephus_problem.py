@@ -1,9 +1,14 @@
 # If we are playing a game where in a list if we are asked to remove a value from list on 3rd position on circular fashion what will be the last element left
 
 '''
-This problem is commonly known as the Josephus problem, where a group of people stand in a circle and every nth person is eliminated until only one person remains. In your case, instead of people, you have a list of values, and you are removing every 3rd value in a circular fashion until only one value remains.
+This problem is commonly known as the Josephus problem, where a group of people stand in a circle 
+and every nth person is eliminated until only one person remains. 
+In your case, instead of people, you have a list of values, and you are removing every 3rd value in a 
+circular fashion until only one value remains.
 
-To solve this problem, you can use a circular linked list or simulate the elimination process iteratively. Here's how you can do it using Python:
+To solve this problem, you can use a circular linked list or simulate the elimination 
+process iteratively. 
+Here's how you can do it using Python:
 '''
 
 def find_last_element(values, k):

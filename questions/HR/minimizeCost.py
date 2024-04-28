@@ -7,7 +7,7 @@ element.
 In each operation, pick two indices i and j (where i !=
 J), and:
 • append the value of a[i] + a[j] to the array
-• delete a[i] and a[J] from the arfY
+• delete a[i] and a[J] from the array
 
 The cost of each operation is a[i] + a[j]. Find the
 minimum possible cost to reduce the array.

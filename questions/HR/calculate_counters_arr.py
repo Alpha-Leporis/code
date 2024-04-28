@@ -1,7 +1,7 @@
 '''
 For each element Of an array. a counter is set to
 0. The element is compared to each element to its
-left. If the element to the left iS greater, the
+left. If the element to the left is greater, the
 absolute difference is subtracted from the
 counter. If the element to the left is less. the
 absolute difference is added to the counter. For

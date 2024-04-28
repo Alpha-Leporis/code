@@ -11,7 +11,7 @@ that is less than or equal to k
 Example
 numbers = [2, 3, 4]
 The subarrays are [2], [3], [4], [2,3], [3,4]
-[2, 3,4] The product of a subarray is the
+[2, 3, 4] The product of a subarray is the
 product of all of its elements so the
 products for the list of subarrays are [2, 3, 4,
 6, 12, 24].
